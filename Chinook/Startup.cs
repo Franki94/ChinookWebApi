@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Chinook.WebApi.Repository.MySql;
+using Chinook.WebApi.Repository.SqlServer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -25,6 +28,12 @@ namespace Chinook
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddEntityFrameworkSqlServer()
+                .AddDbContext<ChinookSqlContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("sqlserver"))).BuildServiceProvider();
+
+            services
+                .AddDbContext<ChinookMySqlContext>(opt => opt.UseMySQL(Configuration.GetConnectionString("postgresql"))).BuildServiceProvider();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
