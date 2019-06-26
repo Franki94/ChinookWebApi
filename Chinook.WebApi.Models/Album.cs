@@ -17,4 +17,9 @@ namespace Chinook.WebApi.Models
         public virtual Artist Artist { get; set; }
         public virtual ICollection<Track> Track { get; set; }
     }
+    public enum DataBaseSelector
+    {
+        MySql = 1,
+        SqlServer = 2
+    }    
 }

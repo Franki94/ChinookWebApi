@@ -34,6 +34,7 @@ namespace Chinook
             services
                 .AddDbContext<ChinookMySqlContext>(opt => opt.UseMySQL(Configuration.GetConnectionString("postgresql"))).BuildServiceProvider();
 
+            services.AddTransient<>
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
