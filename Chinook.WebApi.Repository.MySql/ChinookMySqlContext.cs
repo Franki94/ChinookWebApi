@@ -171,7 +171,7 @@ namespace Chinook.WebApi.Repository.MySql
 
                 entity.Property(e => e.InvoiceDate).HasColumnType("datetime");
 
-                entity.Property(e => e.Total).HasColumnType("numeric(10, 2)");
+                entity.Property(e => e.Total).HasColumnType("decimal(10, 2)");
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Invoice)
@@ -192,7 +192,7 @@ namespace Chinook.WebApi.Repository.MySql
 
                 entity.Property(e => e.InvoiceLineId).ValueGeneratedNever();
 
-                entity.Property(e => e.UnitPrice).HasColumnType("numeric(10, 2)");
+                entity.Property(e => e.UnitPrice).HasColumnType("decimal(10, 2)");
 
                 entity.HasOne(d => d.Invoice)
                     .WithMany(p => p.InvoiceLine)
@@ -268,7 +268,7 @@ namespace Chinook.WebApi.Repository.MySql
                     .IsRequired()
                     .HasMaxLength(200);
 
-                entity.Property(e => e.UnitPrice).HasColumnType("numeric(10, 2)");
+                entity.Property(e => e.UnitPrice).HasColumnType("decimal(10, 2)");
 
                 entity.HasOne(d => d.Album)
                     .WithMany(p => p.Track)
