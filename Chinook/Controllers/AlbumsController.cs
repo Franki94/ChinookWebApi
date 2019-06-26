@@ -14,7 +14,7 @@ namespace Chinook.Controllers
         IUnitOfWork _unitOfWork;
         public AlbumsController(IUnitOfWorkEngine unitOfWorkEngine)
         {
-            _unitOfWork = unitOfWorkEngine.GetUnitOfWork(DataBaseSelector.SqlServer);
+            _unitOfWork = unitOfWorkEngine.GetUnitOfWork(DataBaseSelector.MySql);
         }
 
         [HttpGet]

@@ -38,7 +38,7 @@ namespace Chinook.WebApi.Repository.MySql
 
                 entity.HasKey(e => e.AlbumId).HasName("album_pkey");
 
-                entity.Property(e => e.AlbumId).ValueGeneratedNever();
+                entity.Property(e => e.AlbumId).HasColumnType("int").ValueGeneratedNever();
 
                 entity.Property(e => e.Title)
                     .IsRequired()
@@ -55,7 +55,7 @@ namespace Chinook.WebApi.Repository.MySql
             {
                 entity.HasKey(e => e.ArtistId).HasName("artist_pkey");
 
-                entity.Property(e => e.ArtistId).ValueGeneratedNever();
+                entity.Property(e => e.ArtistId).HasColumnType("int").ValueGeneratedNever();
 
                 entity.Property(e => e.Name).HasMaxLength(120);
             });
@@ -67,7 +67,7 @@ namespace Chinook.WebApi.Repository.MySql
 
                 entity.HasKey(e => e.CustomerId).HasName("customer_pkey");
 
-                entity.Property(e => e.CustomerId).ValueGeneratedNever();
+                entity.Property(e => e.CustomerId).HasColumnType("int").ValueGeneratedNever();
 
                 entity.Property(e => e.Address).HasMaxLength(70);
 
@@ -110,7 +110,7 @@ namespace Chinook.WebApi.Repository.MySql
 
                 entity.HasKey(e => e.EmployeeId).HasName("employee_pkey");
 
-                entity.Property(e => e.EmployeeId).ValueGeneratedNever();
+                entity.Property(e => e.EmployeeId).HasColumnType("int").ValueGeneratedNever();
 
                 entity.Property(e => e.Address).HasMaxLength(70);
 
@@ -152,7 +152,7 @@ namespace Chinook.WebApi.Repository.MySql
             {
                 entity.HasKey(e => e.GenreId).HasName("genre_pkey");
 
-                entity.Property(e => e.GenreId).ValueGeneratedNever();
+                entity.Property(e => e.GenreId).HasColumnType("int").ValueGeneratedNever();
 
                 entity.Property(e => e.Name).HasMaxLength(120);
             });
@@ -164,7 +164,7 @@ namespace Chinook.WebApi.Repository.MySql
 
                 entity.HasKey(e => e.InvoiceId).HasName("invoice_pkey");
 
-                entity.Property(e => e.InvoiceId).ValueGeneratedNever();
+                entity.Property(e => e.InvoiceId).HasColumnType("int").ValueGeneratedNever();
 
                 entity.Property(e => e.BillingAddress).HasMaxLength(70);
 
@@ -197,7 +197,7 @@ namespace Chinook.WebApi.Repository.MySql
 
                 entity.HasKey(e => e.InvoiceLineId).HasName("invoice_line_pkey");
 
-                entity.Property(e => e.InvoiceLineId).ValueGeneratedNever();
+                entity.Property(e => e.InvoiceLineId).HasColumnType("int").ValueGeneratedNever();
 
                 entity.Property(e => e.UnitPrice).HasColumnType("decimal(10, 2)");
 
@@ -218,7 +218,7 @@ namespace Chinook.WebApi.Repository.MySql
             {
                 entity.HasKey(e => e.MediaTypeId).HasName("media_type_pkey");
 
-                entity.Property(e => e.MediaTypeId).ValueGeneratedNever();
+                entity.Property(e => e.MediaTypeId).HasColumnType("int").ValueGeneratedNever();
 
                 entity.Property(e => e.Name).HasMaxLength(120);
             });
@@ -227,7 +227,7 @@ namespace Chinook.WebApi.Repository.MySql
             {
                 entity.HasKey(e => e.PlaylistId).HasName("playlist_pkey");
 
-                entity.Property(e => e.PlaylistId).ValueGeneratedNever();
+                entity.Property(e => e.PlaylistId).HasColumnType("int").ValueGeneratedNever();
 
                 entity.Property(e => e.Name).HasMaxLength(120);
             });
@@ -266,7 +266,7 @@ namespace Chinook.WebApi.Repository.MySql
 
                 entity.HasKey(e => e.TrackId).HasName("track_pkey");
 
-                entity.Property(e => e.TrackId)
+                entity.Property(e => e.TrackId).HasColumnType("int")
                 .ValueGeneratedNever();                ;
 
                 entity.Property(e => e.Composer).HasMaxLength(220);

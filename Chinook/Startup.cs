@@ -1,4 +1,5 @@
-﻿using Chinook.WebApi.Repository;
+﻿using Chinook.WebApi;
+using Chinook.WebApi.Repository;
 using Chinook.WebApi.Repository.MySql;
 using Chinook.WebApi.Repository.SqlServer;
 using Chinook.WebApi.Strategy;
@@ -48,7 +49,14 @@ namespace Chinook
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            //SeedData.InitialData
+            //    (
+            //    app
+            //    .ApplicationServices
+            //    .GetRequiredService<IServiceScopeFactory>()
+            //    .CreateScope()
+            //    .ServiceProvider
+            //    );
             app.UseHttpsRedirection();
             app.UseMvc();
         }

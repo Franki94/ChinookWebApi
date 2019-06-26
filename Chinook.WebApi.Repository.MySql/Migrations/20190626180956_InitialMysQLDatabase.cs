@@ -1,5 +1,5 @@
 ﻿using System;
-using Chinook.WebApi.Repository.MySql.Migrations.SeedDatabase;
+using Chinook.WebApi.Repository.MySql.Migrations.Data;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Chinook.WebApi.Repository.MySql.Migrations
@@ -297,6 +297,18 @@ namespace Chinook.WebApi.Repository.MySql.Migrations
                 name: "track_ix_media_type_id",
                 table: "Track",
                 column: "MediaTypeId");
+
+            migrationBuilder.Sql(SeedData.AddGenreData);
+            migrationBuilder.Sql(SeedData.AddMediaTypeData);
+            migrationBuilder.Sql(SeedData.AddArtist);
+            migrationBuilder.Sql(SeedData.AddAlbumData);
+            migrationBuilder.Sql(SeedData.AddTrackData);
+            migrationBuilder.Sql(SeedData.AddEmployeeData);
+            migrationBuilder.Sql(SeedData.AddCustomerData);
+            migrationBuilder.Sql(SeedData.AddInvoiceData);
+            migrationBuilder.Sql(SeedData.AddInvoiceLineData);
+            migrationBuilder.Sql(SeedData.AddPlayList);
+            migrationBuilder.Sql(SeedData.AddPlayListTrackData);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
