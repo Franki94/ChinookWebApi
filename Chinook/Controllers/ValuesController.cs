@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Chinook.WebApi.Repository;
+using Chinook.WebApi.Strategy;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Chinook.Controllers
@@ -10,6 +12,11 @@ namespace Chinook.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        IUnitOfWork _unitOfWork;
+        public ValuesController(IUnitOfWorkEngine unitOfWorkEngine)
+        {
+            _unitOfWork = unitOfWorkEngine.GetUnitOfWork(WebApi.Models.DataBaseSelector.SqlServer);
+        }
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Chinook.WebApi.Repository;
 using Chinook.WebApi.Repository.MySql;
 using Chinook.WebApi.Repository.SqlServer;
+using Chinook.WebApi.Strategy;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,7 +36,10 @@ namespace Chinook
             services
                 .AddDbContext<ChinookMySqlContext>(opt => opt.UseMySQL(Configuration.GetConnectionString("postgresql"))).BuildServiceProvider();
 
-            services.AddTransient<>
+            services.AddTransient<IUnitOfWork, SqlServerUnitOfWork>();
+            services.AddTransient<IUnitOfWork, MySqlUnitOfWork>();
+            services.AddTransient<IUnitOfWorkEngine, UnitOfWorkEngine>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
