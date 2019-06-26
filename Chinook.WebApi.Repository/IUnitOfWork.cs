@@ -7,6 +7,8 @@ namespace Chinook.WebApi.Repository
 {
     public interface IUnitOfWork
     {
-        DataBaseSelector DataBaseSelector {set; get;}
+        DataBaseSelector DataBaseSelector {get;}
+
+        IRepository<Album> Album { get;}
     }
 }

@@ -18,29 +18,19 @@ namespace Chinook.WebApi.Repository.MySql
             await _context.AddAsync(entity);
             return await _context.SaveChangesAsync();
         }
-
-
-
         public async Task<bool> Delete(T entity)
         {
             _context.Remove(entity);
             return await _context.SaveChangesAsync() > 0;
         }
-
-
-
         public async Task<IEnumerable<T>> Read()
         {
             return await _context.Set<T>().AsNoTracking().ToListAsync();
         }
-
         public async Task<T> ReadById(object id)
         {
             return await _context.Set<T>().FindAsync(id);
         }
-
-
-
         public async Task<bool> Update(T entity)
         {
             _context.Update(entity);

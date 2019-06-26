@@ -21,6 +21,7 @@ namespace Chinook.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            _unitOfWork.Album.
             return new string[] { "value1", "value2" };
         }
 
