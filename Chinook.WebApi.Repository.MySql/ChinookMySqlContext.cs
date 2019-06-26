@@ -10,6 +10,10 @@ namespace Chinook.WebApi.Repository.MySql
           : base(options)
         {
         }
+        public ChinookMySqlContext()
+        {
+
+        }
         public virtual DbSet<Album> Album { get; set; }
         public virtual DbSet<Artist> Artist { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
@@ -21,7 +25,10 @@ namespace Chinook.WebApi.Repository.MySql
         public virtual DbSet<Playlist> Playlist { get; set; }
         public virtual DbSet<PlaylistTrack> PlaylistTrack { get; set; }
         public virtual DbSet<Track> Track { get; set; }
-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySQL("server=localhost;database=chinook;user=root;password=12345;");
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Album>(entity =>

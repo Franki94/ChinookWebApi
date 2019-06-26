@@ -27,7 +27,7 @@ namespace Chinook
                 .AddDbContext<ChinookSqlContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("sqlserver"))).BuildServiceProvider();
 
             services
-                .AddDbContext<ChinookMySqlContext>(opt => opt.UseMySQL(Configuration.GetConnectionString("mysqlConnection"))).BuildServiceProvider();
+                .AddDbContext<ChinookMySqlContext>().BuildServiceProvider();
 
             services.AddTransient<IUnitOfWork, SqlServerUnitOfWork>();
             services.AddTransient<IUnitOfWork, MySqlUnitOfWork>();
