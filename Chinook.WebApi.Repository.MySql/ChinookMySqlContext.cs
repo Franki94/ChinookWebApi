@@ -1,5 +1,6 @@
 ﻿using Chinook.WebApi.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Chinook.WebApi.Repository.MySql
 {
@@ -27,7 +28,7 @@ namespace Chinook.WebApi.Repository.MySql
         public virtual DbSet<Track> Track { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;database=chinook;user=root;password=12345;");
+            optionsBuilder.UseMySQL("server=localhost;database=chinook;user=root;password=12345;", opt  => opt.CommandTimeout((int)TimeSpan.FromMinutes(10).TotalSeconds));
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
