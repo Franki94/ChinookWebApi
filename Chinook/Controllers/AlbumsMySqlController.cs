@@ -5,14 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Chinook.Controllers
+namespace Chinook.WebApi.Controllers
 {
-    [Route("api/albums")]
+    [Route("api/albums/mysql")]
     [ApiController]
-    public class AlbumsController : ControllerBase
+    public class AlbumsMySqlController : Controller
     {
         IUnitOfWork _unitOfWork;
-        public AlbumsController(IUnitOfWorkEngine unitOfWorkEngine)
+        public AlbumsMySqlController(IUnitOfWorkEngine unitOfWorkEngine)
         {
             _unitOfWork = unitOfWorkEngine.GetUnitOfWork(DataBaseSelector.MySql);
         }
