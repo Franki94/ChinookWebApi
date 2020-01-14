@@ -1,5 +1,4 @@
-﻿using Chinook.WebApi;
-using Chinook.WebApi.Repository;
+﻿using Chinook.WebApi.Repository;
 using Chinook.WebApi.Repository.MySql;
 using Chinook.WebApi.Repository.SqlServer;
 using Chinook.WebApi.Strategy;
@@ -28,7 +27,7 @@ namespace Chinook
                 .AddDbContext<ChinookSqlContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("sqlserver"))).BuildServiceProvider();
 
             services
-                .AddDbContext<ChinookMySqlContext>().BuildServiceProvider();
+                .AddDbContext<ChinookMySqlContext>(opt => opt.UseMySQL(Configuration.GetConnectionString("mysqlConnection"))).BuildServiceProvider();
 
             services.AddTransient<IUnitOfWork, SqlServerUnitOfWork>();
             services.AddTransient<IUnitOfWork, MySqlUnitOfWork>();
