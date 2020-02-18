@@ -25,7 +25,7 @@ namespace Chinook.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Customer>> GetCustomerById(int id)
+        public async Task<ActionResult<Customer>> GetCustomerByIdChange(int id)
         {
             var album = await _unitOfWork.Album.ReadById(id);
             return Ok(album);
