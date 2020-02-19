@@ -18,7 +18,7 @@ namespace Chinook.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Album>>> GetCustomersUpdatedName2()
+        public async Task<ActionResult<IEnumerable<Album>>> GetCustomersUpdatedName3()
         {
             var album = await _unitOfWork.Album.Read();
             return Ok(album);
